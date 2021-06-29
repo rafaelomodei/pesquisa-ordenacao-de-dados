@@ -28,8 +28,15 @@ int main(){
 
     p = bubbleSort(size, p, swap);
 
-    printf("> Esquevendo aquivo...\n");
+    printf("> Esquevendo aquivo bubbleSort...\n");
     writeFile(p, size, "./output/fileWriteBubbleSort.txt");
+
+    p = insertShort(size, p, swap);
+
+    printf("> Esquevendo aquivo insertShort...\n");
+    writeFile(p, size, "./output/fileWriteInsertShort.txt");
+
+
 
     printf("\n> Programa finalizado\n");
 
