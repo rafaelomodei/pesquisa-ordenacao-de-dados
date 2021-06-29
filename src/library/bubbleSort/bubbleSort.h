@@ -1,6 +1,6 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 
-void bubbleSort();
+int* bubbleSort(int sizeArray, int *array, long int *swap);
 
 #endif

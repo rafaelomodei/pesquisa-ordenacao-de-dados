@@ -11,16 +11,25 @@ int main(){
     int* p;
     int i;
 
+    long int counterSwap = 0;
+    long int *swap = &counterSwap;
+
     printf("\n> Criando aquivo\n");
     int size = createFile();
 
     printf("> Lendo aquivo...\n");
-    p = readFile(size, inputfileInverted);
+    p = readFile(size, inputfileRandom);
 
     printf(">Elemento: %d\n", *p);
 
     printf("> Esquevendo aquivo...\n");
     writeFile(p, size, "./output/fileWrite.txt");
+
+
+    p = bubbleSort(size, p, swap);
+
+    printf("> Esquevendo aquivo...\n");
+    writeFile(p, size, "./output/fileWriteBubbleSort.txt");
 
     printf("\n> Programa finalizado\n");
 
