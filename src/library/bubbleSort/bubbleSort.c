@@ -30,7 +30,7 @@ int* bubbleSort(int sizeArray, int *array, long int *swap){
     //---------------------------------------------
     Ticks[1] = clock();
     double time = (double)(Ticks[1] - Ticks[0]) / CLOCKS_PER_SEC;
-    printf("Tempo: %.2f  \n", time);
+    printf("%.2f s\n", time);
 
     return array;
 }
