@@ -3,5 +3,11 @@
 
 //void splashScreen();
 void menu();
+void card();
+void splashScreen();
+void about();
+void title();
+
+void divider();
 
 #endif

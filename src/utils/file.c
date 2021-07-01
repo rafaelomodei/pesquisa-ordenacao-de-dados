@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "file.h"
+#include "../style/styles.h"
 
 int createFile(){
 
@@ -13,12 +15,15 @@ int createFile(){
     fileRandom = fopen(inputfileRandom,"w");
 
     if(fileOrderly == NULL || fileInverted == NULL || fileRandom == NULL){
-        printf("Erro ao operar os arquivos!\n");
+        printf("  ERRO AO OPERAR OS ARQUIVOS!\n");
         return 1;
     }
 
-    printf("--- Inicializacao dos arquivos --- \n");
-    printf("Qual sera o tamanho dos arquivos ?\n");
+    
+    printf("\n");
+    printf("%s Quantos elemento deseja criar ? \n", MARGIN);
+    printf("%s Exemplo: 1000000 \n", MARGIN);
+    printf("\n > ");
     scanf("%d",&sizeArray);
 
     while(i<sizeArray){

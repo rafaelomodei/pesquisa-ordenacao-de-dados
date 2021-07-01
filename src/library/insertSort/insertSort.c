@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "insertShort.h"
+#include "insertSort.h"
 
-int* insertShort(int sizeArry, int *array, long int *swap){
+int* insertSort(int sizeArry, int *array, long int *swap){
 
     int i = 0, j = 1, aux=0;
 

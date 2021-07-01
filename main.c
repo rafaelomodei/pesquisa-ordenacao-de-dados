@@ -3,26 +3,30 @@
 #include <string.h>
 
 #include "./src/library/bubbleSort/bubbleSort.h"
-#include "./src/library/insertShort/insertShort.h"
+#include "./src/library/insertSort/insertSort.h"
+//#include "./src/library/quickSort/quickSort.h"
+#include "./src/library/selectionSort/selectionSort.h"
+#include "./src/library/shellSort/shellSort.h"
+
+
 #include "./src/utils/file.h"
 #include "./src/components/component.h"
-
-#define FILE_OUTPUT "OUTPUT"
-
+#include "./src/style/styles.h"
+#include "./src/utils/global.h"
 
 #define MENSSAGER_INVALID_OPTION "Opção invalida, tentar novamente!"
-
-#define pointer "\n >"
 
 int main(){
 
 
     int *file, *readFileOrderly, *readFileInverted, *readFileRandom;
-    //int i;
+    int *pause;
     int menuOption = 0;
 
     long int counterSwap = 0;
     long int *swap = &counterSwap;
+
+    splashScreen();
 
     int sizeFile = createFile();
 
@@ -30,108 +34,205 @@ int main(){
     readFileInverted = readFile(sizeFile, inputfileInverted);
     readFileRandom = readFile(sizeFile, inputfileRandom);
 
+    do{
     menu();
     scanf("%i", &menuOption);
 
     switch(menuOption){
         case 0:{
-            printf(" %s Opção 0", pointer);
+           printf("\n\n");
+           divider();
+           printf("\n\n");
+           about();
+           divider();
+           printf("\n\n");
+           printf("Programa finalizado com sucesso!");
+           printf("\n\n");
+
         }break;
 
         case 1:{
-            printf("\n %s BUBBLE SHORT", pointer);
+            
+            title("BUBBLE SHORT");
 
             // Ordenados
-            printf("\n %s Dados ORDENADOS", pointer);
-            printf("\n %s Verificando dados ordenandos...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
+            printf(" %s Dados ORDENADOS", POINTER);
+            printf("\n %s Verificando dados ordenandos...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
             file = bubbleSort(sizeFile, readFileOrderly, swap);
-            printf(" %s Dados ordenados verificado", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
+            printf(" %s Dados ordenados verificado", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
             writeFile(file, sizeFile, "./output/OUTPUT_fileOrderlyBubbleSort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n =================== ");
+            divider();
 
             // Invertidos
-            printf("\n %s Dados INVERTIDOS", pointer);
-            printf(" %s Ordenando os dados...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
+            printf("\n %s Dados INVERTIDOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
             file = bubbleSort(sizeFile, readFileInverted, swap);
-            printf(" %s Dados ordenados", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
             writeFile(file, sizeFile, "./output/OUTPUT_fileInvertedBubbleSort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n ===================");
+            divider();
 
             // Randômicos
-            printf("\n %s Dados RANDOMICOS", pointer);
-            printf(" %s Ordenando os dados...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
+            printf("\n %s Dados RANDOMICOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
             file = bubbleSort(sizeFile, readFileRandom, swap);
-            printf(" %s Dados ordenados", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
             writeFile(file, sizeFile, "./output/OUTPUT_fileRandomBubbleSort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n =================== \n");
+            divider();
 
-            printf(" %s Criando logs...", pointer);
-            printf(" %s Logs finalizados", pointer);
+            printf(" %s Criando logs...", POINTER);
+            printf(" %s Logs finalizados", POINTER);
 
         }break;
 
         case 2:{
-            printf("\n %s Insert SHORT", pointer);
+
+            title("INSERT SHORT");
 
             // Ordenados
-            printf("\n %s Dados ORDENADOS", pointer);
-            printf("\n %s Verificando dados ordenandos...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
-            file = insertShort(sizeFile, readFileOrderly, swap);
-            printf(" %s Dados ordenados verificado", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
-            writeFile(file, sizeFile, "./output/OUTPUT_fileOrderlyInsertShort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf(" %s Dados ORDENADOS", POINTER);
+            printf("\n %s Verificando dados ordenandos...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = insertSort(sizeFile, readFileOrderly, swap);
+            printf(" %s Dados ordenados verificado", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileOrderlyInsertSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n =================== ");
+            divider();
 
             // Invertidos
-            printf("\n %s Dados INVERTIDOS", pointer);
-            printf(" %s Ordenando os dados...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
-            file = insertShort(sizeFile, readFileInverted, swap);
-            printf(" %s Dados ordenados", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
-            writeFile(file, sizeFile, "./output/OUTPUT_fileInvertedInsertShort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf("\n %s Dados INVERTIDOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = insertSort(sizeFile, readFileInverted, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileInvertedInsertSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n ===================");
+            divider();
 
             // Randômicos
-            printf("\n %s Dados RANDOMICOS", pointer);
-            printf(" %s Ordenando os dados...", pointer);
-            printf("\n %s Tempo gasto na ordenação: ", pointer);
-            file = insertShort(sizeFile, readFileRandom, swap);
-            printf(" %s Dados ordenados", pointer);
-            printf(" %s Escrevendo dados ordenados...", pointer);
-            writeFile(file, sizeFile, "./output/OUTPUT_fileRandomInsertShort.txt");
-            printf(" %s Dados ordenados escritos...", pointer);
+            printf("\n %s Dados RANDOMICOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = insertSort(sizeFile, readFileRandom, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileRandomInsertSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
 
-            printf("\n\n =================== \n");
+            divider();
 
-            printf(" %s Criando logs...", pointer);
-            printf(" %s Logs finalizados", pointer);
+            printf(" %s Criando logs...", POINTER);
+            printf(" %s Logs finalizados", POINTER);
         }break;
 
         case 3:{
-            printf(" %s Opção 3", pointer);
+            title("SELECTION SHORT");
+
+            // Ordenados
+            printf(" %s Dados ORDENADOS", POINTER);
+            printf("\n %s Verificando dados ordenandos...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = selectionSort(sizeFile, readFileOrderly, swap);
+            printf(" %s Dados ordenados verificado", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileOrderlySelectionSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            // Invertidos
+            printf("\n %s Dados INVERTIDOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = selectionSort(sizeFile, readFileInverted, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileInvertedSelectionSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            // Randômicos
+            printf("\n %s Dados RANDOMICOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = selectionSort(sizeFile, readFileRandom, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileRandomSelectionSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            printf(" %s Criando logs...", POINTER);
+            printf(" %s Logs finalizados", POINTER);
+
         }break;
+
+        case 4:{
+            title("SHELL SHORT");
+
+            // Ordenados
+            printf(" %s Dados ORDENADOS", POINTER);
+            printf("\n %s Verificando dados ordenandos...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = shellSort(sizeFile, readFileOrderly, swap);
+            printf(" %s Dados ordenados verificado", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileOrderlyShellSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            // Invertidos
+            printf("\n %s Dados INVERTIDOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = shellSort(sizeFile, readFileInverted, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileInvertedShellSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            // Randômicos
+            printf("\n %s Dados RANDOMICOS", POINTER);
+            printf(" %s Ordenando os dados...", POINTER);
+            printf("\n %s Tempo gasto na ordenação: ", POINTER);
+            file = shellSort(sizeFile, readFileRandom, swap);
+            printf(" %s Dados ordenados", POINTER);
+            printf(" %s Escrevendo dados ordenados...", POINTER);
+            writeFile(file, sizeFile, "./output/OUTPUT_fileRandomShellSort.txt");
+            printf(" %s Dados ordenados escritos...\n", POINTER);
+
+            divider();
+
+            printf(" %s Criando logs...", POINTER);
+            printf(" %s Logs finalizados", POINTER);
+
+        }break;
+
         default:{
-            printf("\n %s %s", pointer,  MENSSAGER_INVALID_OPTION);
+            printf("\n %s %s", POINTER,  MENSSAGER_INVALID_OPTION);
         }break;
     }
+    }while(menuOption != 0);
 
     // printf("\n> Criando aquivo\n");
     
@@ -150,10 +251,10 @@ int main(){
     // printf("> Esquevendo aquivo bubbleSort...\n");
     // writeFile(p, size, "./output/fileWriteBubbleSort.txt");
 
-    // p = insertShort(size, p, swap);
+    // p = insertSort(size, p, swap);
 
-    // printf("> Esquevendo aquivo insertShort...\n");
-    // writeFile(p, size, "./output/fileWriteInsertShort.txt");
+    // printf("> Esquevendo aquivo insertSort...\n");
+    // writeFile(p, size, "./output/fileWriteInsertSort.txt");
 
 
 
