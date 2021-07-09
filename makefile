@@ -1,7 +1,7 @@
-all: pod
+all: main clean
 
-pod: libaries.a main.c
-	gcc -o pod -c main.c libaries.a
+main: libaries.a main.c
+	gcc -o main main.c libaries.a
 
 libaries.a: file.c component.c bubbleSort.c insertSort.c selectionSort.c shellSort.c
 	ar ruv libaries.a file.o component.o bubbleSort.o insertSort.o selectionSort.o shellSort.o
@@ -23,3 +23,7 @@ selectionSort.c: src/library/selectionSort/selectionSort.c src/library/selection
 
 shellSort.c: src/library/shellSort/shellSort.c src/library/shellSort/shellSort.h
 	gcc -o shellSort.o -c src/library/shellSort/shellSort.c
+
+clean:
+	rm -rf *.o
+	rm -rf *.a
