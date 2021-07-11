@@ -95,7 +95,7 @@ int writeFileLog(char ctx[]){
     if(ctx == "\n")
         fprintf(file, "%s", ctx);
     else
-        fprintf(file, "%s ", ctx);
+        fprintf(file, "%s, ", ctx);
     
     fclose(file);
 

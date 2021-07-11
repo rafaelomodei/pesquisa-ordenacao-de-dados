@@ -11,7 +11,7 @@
 #define nameFileInverted "FileInverted.txt"
 #define nameFileRandom "FileRandom.txt"
 
-#define nameFileLog "log.txt"
+#define nameFileLog "log.csv"
 
 int createFile();
 int* readFile(int sizeArray, char fileName[]);

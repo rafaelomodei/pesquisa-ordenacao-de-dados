@@ -85,6 +85,7 @@ void divider(){
 void content(Method method, int contentSize){
 
     int *log, *file, *readFileOrderly, *readFileInverted, *readFileRandom;
+    char startLog[2] = "\n";
 
     long int counterSwap = 0;
     long int *swap = &counterSwap;
@@ -137,7 +138,10 @@ void content(Method method, int contentSize){
         selectMethod = 3:
         title("METODO NAO ENCONTRADO!");
 
-    writeFileLog(titleMethod[selectMethod]);
+    writeFileLog(strcat(startLog, titleMethod[selectMethod]));
+    snprintf(startLog, 20, "%d", contentSize);
+    writeFileLog(startLog);
+
     
     for (int i = 0; i <= 2; i++){ //typeFile
         title(titleMethod[selectMethod]);
@@ -163,8 +167,5 @@ void content(Method method, int contentSize){
         strcpy(fileOutput, PATH_FILE);
         __fpurge(stdin);
 
-    }
-
-    writeFileLog("\n");
-    
+    }    
 }
