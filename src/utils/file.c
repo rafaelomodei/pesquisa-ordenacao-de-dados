@@ -7,7 +7,6 @@
 int createFile(){
 
     FILE* fileOrderly, *fileInverted, *fileRandom;
-
     int sizeArray = 0, i=0;
 
     fileOrderly = fopen(inputFileOrderly,"w");
@@ -24,9 +23,9 @@ int createFile(){
     printf("%s Quantos elemento deseja criar ? \n", MARGIN);
     printf("%s Exemplo: 1000000 \n", MARGIN);
     printf("\n > ");
-    scanf("%d",&sizeArray);
+    scanf("%d", &sizeArray);
 
-    while(i<sizeArray){
+    while(i< sizeArray){
        fprintf(fileOrderly, "%d ", i);
        i++;
     }
@@ -36,7 +35,7 @@ int createFile(){
        i--;
     }
     i++;
-    while(i<sizeArray){
+    while(i< sizeArray){
        fprintf(fileRandom, "%d ", rand() % sizeArray);
        i++;
     }
