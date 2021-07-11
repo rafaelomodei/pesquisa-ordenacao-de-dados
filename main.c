@@ -18,21 +18,11 @@
 
 int main(){
 
-
-    int *file, *readFileOrderly, *readFileInverted, *readFileRandom;
-    int *pause;
     int menuOption = 0;
-
-    long int counterSwap = 0;
-    long int *swap = &counterSwap;
 
     splashScreen();
 
     int contentSize = createFile();
-
-    readFileOrderly = readFile(contentSize, inputFileOrderly);
-    readFileInverted = readFile(contentSize, inputfileInverted);
-    readFileRandom = readFile(contentSize, inputfileRandom);
 
     do{
     menu();
@@ -52,10 +42,10 @@ int main(){
         }break;
 
         case 1:{
+
             content(bubbleSort, contentSize);
             content(insertSort, contentSize);
             content(selectionSort, contentSize);
-            content(shellSort, contentSize);
             content(shellSort, contentSize);
 
         }break;

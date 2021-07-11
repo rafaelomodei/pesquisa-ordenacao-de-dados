@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "file.h"
 #include "../style/styles.h"
@@ -78,6 +79,24 @@ int writeFile(int *array, int sizeArray ,char fileName[]){
     for(i = 0; i<sizeArray; i++ ){
         fprintf(file, "%d ", array[i]);
     }
+    fclose(file);
+
+    return 0;
+}
+
+int writeFileLog(char ctx[]){
+
+    int i;
+    char fileOutput[100] = PATH_FILE;
+    FILE* file;
+
+    file = fopen( strcat(fileOutput, nameFileLog),"a");
+
+    if(ctx == "\n")
+        fprintf(file, "%s", ctx);
+    else
+        fprintf(file, "%s ", ctx);
+    
     fclose(file);
 
     return 0;

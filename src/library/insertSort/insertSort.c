@@ -1,11 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 #include "insertSort.h"
+#include "../../utils/file.h"
 
 int* insertSort(int sizeArry, int *array, long int *swap){
 
     int i = 0, j = 1, aux=0;
+
+    double time = 0;
+    char timeString[20] = "";
 
     //------------------ Marcação de tempo ---------
     clock_t Ticks[2];
@@ -26,8 +31,11 @@ int* insertSort(int sizeArry, int *array, long int *swap){
     }
     //---------------------------------------------
     Ticks[1] = clock();
-    double time = (double)(Ticks[1] - Ticks[0]) / CLOCKS_PER_SEC;
+    time = (double)(Ticks[1] - Ticks[0]) / CLOCKS_PER_SEC;
     printf("Tempo: %.2f \n", time);
+
+    snprintf(timeString, 20, "%f", time);
+    writeFileLog(timeString);
 
     return array;
 }

@@ -11,10 +11,11 @@
 #define nameFileInverted "FileInverted.txt"
 #define nameFileRandom "FileRandom.txt"
 
+#define nameFileLog "log.txt"
 
 int createFile();
 int* readFile(int sizeArray, char fileName[]);
 int writeFile(int *array, int sizeArray ,char fileName[]);
-
+int writeFileLog(char ctx[]);
 
 #endif

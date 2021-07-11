@@ -84,7 +84,7 @@ void divider(){
 
 void content(Method method, int contentSize){
 
-    int *file, *readFileOrderly, *readFileInverted, *readFileRandom;
+    int *log, *file, *readFileOrderly, *readFileInverted, *readFileRandom;
 
     long int counterSwap = 0;
     long int *swap = &counterSwap;
@@ -119,6 +119,8 @@ void content(Method method, int contentSize){
         "_FileRandom",
     };
 
+    //log = readFile(contentSize, strcat(fileOutput, nameFileLog));
+
     int* typeFile[3] = {
         readFileOrderly = readFile(contentSize, inputFileOrderly),
         readFileInverted = readFile(contentSize, inputfileInverted),
@@ -135,9 +137,12 @@ void content(Method method, int contentSize){
         selectMethod = 3:
         title("METODO NAO ENCONTRADO!");
 
+    writeFileLog(titleMethod[selectMethod]);
     
     for (int i = 0; i <= 2; i++){ //typeFile
         title(titleMethod[selectMethod]);
+
+        //writeFileLog(typeData[i]);
         
         printf(" %s Dados %s", POINTER, typeData[i]);
         printf("\n %s Verificando dados %s...", POINTER, typeData[i]);
@@ -154,14 +159,12 @@ void content(Method method, int contentSize){
         
         divider();
 
-        //Criar logs
-        // printf(" %s Criando logs...", POINTER);
-        // printf(" %s Logs finalizados", POINTER);
-
         //Limpando buffer
         strcpy(fileOutput, PATH_FILE);
         __fpurge(stdin);
 
     }
+
+    writeFileLog("\n");
     
 }
