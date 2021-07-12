@@ -1,43 +1,43 @@
-// #include <stdio.h>
-// #include <time.h>
+#include <stdio.h>
+#include <time.h>
 
-// #include "quickSort.h"
+#include "quickSort.h"
 
-// int* quickSort(int sizeArray, int *array, long int *swap){
+int* quickSort(int *array, int *left, long int *right){
 
-//     if(esquerda < direita){
-//         int p = particioner(vet, esquerda, direita);
-//         ordenar_quick(vet, esquerda, p - 1);
-//         ordenar_quick(vet, p + 1, direita);
-//     } else {
-//         return 0;
-//     }
-//     return 0;
+    if(left < right){
+        int p = particioner(array, left, right);
+        quickSort(array, left, p - 1);
+        quickSort(array, p + 1, right);
+    } else {
+        return 0;
+    }
+    return 0;
 
-// }
+}
 
-// int particioner(int *arr, int low, int high){
-//     int pivot = arr[high]; // pivot
-//     int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+int particioner(int *array, int left, int right){
+    int pivot = array[right]; // pivot
+    int i = (left - 1); // Index of smaller element and indicates the right position of pivot found so far
 
-//     for (int j = low; j <= high - 1; j++)
-//     {
-//         // If current element is smaller than the pivot
-//         if (arr[j] < pivot)
-//         {
-//             i++; // increment index of smaller element
-//             int t = arr[i];
-//             arr[i] = arr[j];
-//             arr[j] = t;
-//         }
-//     }
+    for (int j = left; j <= right - 1; j++)
+    {
+        // If current element is smaller than the pivot
+        if (array[j] < pivot)
+        {
+            i++; // increment index of smaller element
+            int swap = array[i];
+            array[i] = array[j];
+            array[j] = swap;
+        }
+    }
 
-//     int t = arr[i + 1];
-//     arr[i + 1] = arr[high];
-//     arr[high] = t;
+    int swap = array[i + 1];
+    array[i + 1] = array[right];
+    array[right] = swap;
 
-//     return (i + 1);
-// }
+    return (i + 1);
+}
 
 // int particionar(int *vet, int esquerda, int direita,int *trocas){
 //     int pivo = vet[esquerda];

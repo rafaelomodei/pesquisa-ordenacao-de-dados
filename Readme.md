@@ -9,6 +9,7 @@ O objetivo desse projeto é desenvolver métodos de ordenação e apresentar as 
 ## Sumario
  
  * Como executar o projeto
+ * Metodos
  * Resultado
 
 ## Resultado

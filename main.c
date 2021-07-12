@@ -4,9 +4,12 @@
 
 #include "./src/library/bubbleSort/bubbleSort.h"
 #include "./src/library/insertSort/insertSort.h"
-//#include "./src/library/quickSort/quickSort.h"
+#include "./src/library/quickSort/quickSort.h"
 #include "./src/library/selectionSort/selectionSort.h"
 #include "./src/library/shellSort/shellSort.h"
+#include "./src/library/radixSort/radixSort.h"
+#include "./src/library/heapSort/heapSort.h"
+
 
 
 #include "./src/utils/file.h"
@@ -71,6 +74,26 @@ int main(){
         case 5:{
 
             content(shellSort, contentSize);
+
+        }break;
+        case 6:{
+
+            //Quicksort
+
+        }break;
+        case 7:{
+
+            //Mergesort
+
+        }break;
+        case 8:{
+
+            content(radixSort, contentSize);
+
+        }break;
+        case 9:{
+
+            content(heapSort, contentSize);
 
         }break;
 

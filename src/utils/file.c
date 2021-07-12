@@ -8,7 +8,8 @@
 int createFile(){
 
     FILE* fileOrderly, *fileInverted, *fileRandom;
-    int sizeArray = 0, i=0;
+    int sizeArray;
+    int i=0;
 
     fileOrderly = fopen(inputFileOrderly,"w");
     fileInverted = fopen(inputfileInverted,"w");
@@ -76,7 +77,7 @@ int writeFile(int *array, int sizeArray ,char fileName[]){
     int i;
     FILE* file;
     file = fopen(fileName,"w");
-    for(i = 0; i<sizeArray; i++ ){
+    for(i = 0; i< sizeArray; i++ ){
         fprintf(file, "%d ", array[i]);
     }
     fclose(file);

@@ -15,10 +15,8 @@ int* bubbleSort(int sizeArray, int *array, long int *swap){
     char timeString[20] = "";
 
 
-    //------------------ Marcação de tempo ---------
     clock_t Ticks[2];
     Ticks[0] = clock();
-    //---------------------------
 
     //----------------- Bubble sort ----------------
 
@@ -35,7 +33,6 @@ int* bubbleSort(int sizeArray, int *array, long int *swap){
         }
     }
 
-    //---------------------------------------------
     Ticks[1] = clock();
     time = (double)(Ticks[1] - Ticks[0]) / CLOCKS_PER_SEC;
     printf("%.2f s\n", time);

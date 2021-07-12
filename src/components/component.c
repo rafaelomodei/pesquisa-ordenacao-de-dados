@@ -12,14 +12,8 @@
 #include "../library/insertSort/insertSort.h"
 #include "../library/selectionSort/selectionSort.h"
 #include "../library/shellSort/shellSort.h"
-
-
-
-// enum methods{
-//     bubbleSort,
-//     insertSort,
-// }typeMthods;
-
+#include "../library/radixSort/radixSort.h"
+#include "../library/heapSort/heapSort.h"
 
 void splashScreen(){
 
@@ -60,9 +54,10 @@ void menu(){
     printf("%s [ 3 ] - executar a ordenacao usando Insertion Sort                 \n", MARGIN);
     printf("%s [ 4 ] - executar a ordenacao usando Selection Sort                 \n", MARGIN);
     printf("%s [ 5 ] - executar a ordenacao usando Shell Sort                     \n", MARGIN);
-    // printf("%s [ 6 ] - executar a ordenacao usando Quicksort(Lomuto)             \n", MARGIN);
+    // printf("%s [ 6 ] - executar a ordenacao usando Quicksort(Lomuto)              \n", MARGIN);
     // printf("%s [ 7 ] - executar a ordenacao usando Mergesort                     \n", MARGIN);
-    // printf("%s [ 8 ] - executar a ordenacao usando Radixsort                     \n", MARGIN);
+    printf("%s [ 8 ] - executar a ordenacao usando Radix Sort                     \n", MARGIN);
+    printf("%s [ 9 ] - executar a ordenacao usando Heap Sort                      \n", MARGIN);
     // printf("%s [ 9 ] - executar a ordenacao usando QuickSort(Hoare)              \n", MARGIN);
     printf("\n");
     printf("\n");
@@ -98,20 +93,26 @@ void content(Method method, int contentSize){
         "RANDOMICOS",
     };
 
-    char titleMethod[4][20] = {
+    char titleMethod[6][20] = {
         "BUBBLE SORT",
         "INSERT SORT",
         "SELECT SORT",
         "SHELL SORT",
+        "RADIX SORT",
+        "HEAP SORT"
     };
-
-    char fileOutput[100] = PATH_FILE;
     
-    char nameMethodOutput[4][20] = {
+    char fileOutput[100] = "\0";
+    fileOutput[0] = *PATH_FILE;
+
+    
+    char nameMethodOutput[6][20] = {
         "OUTPUT_BubbleSort",
         "OUTPUT_InsertShort",
         "OUTPUT_SelectShort",
         "OUTPUT_ShellShort",
+        "OUTPUT_RadixShort",
+        "OUTPUT_HeapShort",
     };
 
     char typeFileOutput[3][20] = {
@@ -136,6 +137,10 @@ void content(Method method, int contentSize){
         selectMethod = 2 :
     method == shellSort ?
         selectMethod = 3:
+    method == radixSort ?
+        selectMethod = 4:
+    method == heapSort ?
+        selectMethod = 5:
         title("METODO NAO ENCONTRADO!");
 
     writeFileLog(strcat(startLog, titleMethod[selectMethod]));
@@ -165,6 +170,7 @@ void content(Method method, int contentSize){
 
         //Limpando buffer
         strcpy(fileOutput, PATH_FILE);
+        fflush(stdin);
         __fpurge(stdin);
 
     }    
