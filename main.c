@@ -50,6 +50,8 @@ int main(){
             content(insertSort, contentSize);
             content(selectionSort, contentSize);
             content(shellSort, contentSize);
+            content(radixSort, contentSize);
+            content(heapSort, contentSize);
 
         }break;
 

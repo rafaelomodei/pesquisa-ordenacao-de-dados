@@ -13,6 +13,8 @@ O objetivo desse projeto é desenvolver métodos de ordenação e apresentar as 
  * Resultado
 
 ## Resultado
+
+Acesse a planilha para ver informações sobre o PC e os resultados gerados na ordenação.
  
 [Palhanilha com as infirmações de saída](https://docs.google.com/spreadsheets/d/1d3DbFcWBWvoXuus47X4YwXXZXZa96CEPuhySlprdPCA/edit?usp=sharing).
 
